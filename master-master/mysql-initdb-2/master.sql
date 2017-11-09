@@ -1,0 +1,9 @@
+-- Create user for replication
+GRANT REPLICATION SLAVE ON *.* TO 'replicator'@'%' IDENTIFIED BY '123456';
+FLUSH PRIVILEGES;
+
+-- Config master
+CHANGE MASTER TO MASTER_HOST='mysql-1',MASTER_USER='replicator',MASTER_PASSWORD='123456', MASTER_PORT=3306, MASTER_CONNECT_RETRY=30;
+
+-- Start slave
+START SLAVE;

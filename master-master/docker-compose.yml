@@ -1,13 +1,13 @@
 version: "2"
 
 services:
-    mysql1:
+    mysql-1:
         image: mysql:5.7
         networks:
             - nginx-back
         volumes:
-            - ./mysql-data1/:/var/lib/mysql/
-            - ./mysql-cfg1/:/etc/mysql/conf.d
+            - ./mysql-data-1/:/var/lib/mysql/
+            - ./mysql-cfg-1/:/etc/mysql/conf.d
             - ./mysql-initdb-1/:/docker-entrypoint-initdb.d
         environment:
             - MYSQL_ROOT_PASSWORD=dev@123
@@ -21,14 +21,14 @@ services:
                 max-size: "100M"
                 max-file: "3"
 
-    mysql2:
+    mysql-2:
         image: mysql:5.7
         networks:
             - nginx-back
         volumes:
-            - ./mysql-data2/:/var/lib/mysql/
-            - ./mysql-cfg2/:/etc/mysql/conf.d
-            - ./mysql-initdb-1/:/docker-entrypoint-initdb.d
+            - ./mysql-data-2/:/var/lib/mysql/
+            - ./mysql-cfg-2/:/etc/mysql/conf.d
+            - ./mysql-initdb-2/:/docker-entrypoint-initdb.d
         environment:
             - MYSQL_ROOT_PASSWORD=dev@123
             - MYSQL_DATABASE=demo
