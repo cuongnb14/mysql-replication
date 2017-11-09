@@ -1,0 +1,46 @@
+version: "2"
+
+services:
+    mysql1:
+        image: mysql:5.7
+        networks:
+            - nginx-back
+        volumes:
+            - ./mysql-data1/:/var/lib/mysql/
+            - ./mysql-cfg1/:/etc/mysql/conf.d
+            - ./mysql-initdb-1/:/docker-entrypoint-initdb.d
+        environment:
+            - MYSQL_ROOT_PASSWORD=dev@123
+            - MYSQL_DATABASE=demo
+        ports:
+            - "0.0.0.0:3311:3306"
+        hostname: mysql1
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "100M"
+                max-file: "3"
+
+    mysql2:
+        image: mysql:5.7
+        networks:
+            - nginx-back
+        volumes:
+            - ./mysql-data2/:/var/lib/mysql/
+            - ./mysql-cfg2/:/etc/mysql/conf.d
+            - ./mysql-initdb-1/:/docker-entrypoint-initdb.d
+        environment:
+            - MYSQL_ROOT_PASSWORD=dev@123
+            - MYSQL_DATABASE=demo
+        ports:
+            - "0.0.0.0:3312:3306"
+        hostname: mysql2
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "100M"
+                max-file: "3"
+
+networks:
+    nginx-back:
+      #external: true

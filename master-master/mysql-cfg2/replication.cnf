@@ -1,0 +1,12 @@
+# replication
+[mysqld]
+server-id = 2
+auto-increment-increment = 2
+auto-increment-offset = 2
+log-bin = /var/log/mysql/mysql-bin.log
+binlog-do-db = demo
+innodb_flush_log_at_trx_commit=1
+sync_binlog=1
+
+relay-log = /var/lib/mysql/slave-relay.log
+relay-log-index = /var/lib/mysql/slave-relay-log.index
