@@ -1,2 +1,6 @@
-master-master/mysql-data-1/
-master-master/mysql-data-2/
+master-master/mysql-1/mysql-data/
+master-master/mysql-2/mysql-data/
+master-master/mysql-1/mysql-logbin/*
+!master-master/mysql-1/mysql-logbin/.gitkeep
+master-master/mysql-2/mysql-logbin/*
+!master-master/mysql-2/mysql-logbin/.gitkeep

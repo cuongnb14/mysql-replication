@@ -6,9 +6,10 @@ services:
         networks:
             - nginx-back
         volumes:
-            - ./mysql-data-1/:/var/lib/mysql/
-            - ./mysql-cfg-1/:/etc/mysql/conf.d
-            - ./mysql-initdb-1/:/docker-entrypoint-initdb.d
+            - ./mysql-1/mysql-logbin/:/var/log/mysql/
+            - ./mysql-1/mysql-data/:/var/lib/mysql/
+            - ./mysql-1/mysql-cfg/:/etc/mysql/conf.d
+            - ./mysql-1/mysql-initdb/:/docker-entrypoint-initdb.d
         environment:
             - MYSQL_ROOT_PASSWORD=dev@123
             - MYSQL_DATABASE=demo
@@ -26,9 +27,10 @@ services:
         networks:
             - nginx-back
         volumes:
-            - ./mysql-data-2/:/var/lib/mysql/
-            - ./mysql-cfg-2/:/etc/mysql/conf.d
-            - ./mysql-initdb-2/:/docker-entrypoint-initdb.d
+            - ./mysql-2/mysql-logbin/:/var/log/mysql/
+            - ./mysql-2/mysql-data/:/var/lib/mysql/
+            - ./mysql-2/mysql-cfg/:/etc/mysql/conf.d
+            - ./mysql-2/mysql-initdb/:/docker-entrypoint-initdb.d
         environment:
             - MYSQL_ROOT_PASSWORD=dev@123
             - MYSQL_DATABASE=demo
